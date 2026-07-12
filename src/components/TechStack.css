@@ -1,0 +1,94 @@
+.tech-stack-section {
+  background-color: #faf7f3;
+  padding: 8rem 5%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.tech-stack-container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.tech-stack-title {
+  font-family: var(--font-archivo, "Archivo", sans-serif);
+  font-weight: 800;
+  font-size: clamp(40px, 5vw, 60px);
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  color: #111;
+  margin: 0 0 6rem 0;
+  text-align: left;
+}
+
+.tech-categories-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  width: 100%;
+}
+
+.tech-category-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tech-category-title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: clamp(20px, 2vw, 28px);
+  color: #111;
+  margin: 0 0 0.5rem 0;
+  border-bottom: 2px solid rgba(17, 17, 17, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.tech-items-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.tech-item-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  cursor: default;
+  transition: box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.tech-item-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.tech-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.tech-name {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tech-stack-section {
+    padding: 6rem 5%;
+  }
+  .tech-stack-title {
+    margin: 0 0 4rem 0;
+  }
+  .tech-categories-stack {
+    gap: 4rem;
+  }
+}
