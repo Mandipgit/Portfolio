@@ -5,12 +5,12 @@ import './FloatingSocials.css';
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: { 
-    opacity: 1, 
-    transition: { 
+  visible: {
+    opacity: 1,
+    transition: {
       delay: 0.5,
-      staggerChildren: 0.15 
-    } 
+      staggerChildren: 0.15
+    }
   }
 };
 
@@ -21,7 +21,7 @@ const itemVariants = {
 
 export default function FloatingSocials() {
   return (
-    <motion.div 
+    <motion.div
       className="floating-socials"
       variants={containerVariants}
       initial="hidden"
@@ -30,7 +30,7 @@ export default function FloatingSocials() {
       <motion.a href="https://github.com/mandipgit" target="_blank" rel="noopener noreferrer" className="floating-social-btn" variants={itemVariants} aria-label="GitHub">
         <FaGithub />
       </motion.a>
-      <motion.a href="#" className="floating-social-btn" variants={itemVariants} aria-label="LinkedIn">
+      <motion.a href="https://www.linkedin.com/in/mandeep-pokharel-726097422" target="_blank" rel="noopener noreferrer" className="floating-social-btn" variants={itemVariants} aria-label="LinkedIn">
         <FaLinkedin />
       </motion.a>
       <motion.a href="https://www.facebook.com/mandip.pokharel.357" target="_blank" rel="noopener noreferrer" className="floating-social-btn" variants={itemVariants} aria-label="Facebook">

@@ -5,33 +5,33 @@ import './ContactSection.css';
 
 const leftVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.6, ease: "easeOut" } 
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
   }
 };
 
 const rightContainerVariants = {
   hidden: { opacity: 0, x: 50 },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    transition: { 
-      duration: 0.8, 
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
       ease: [0.22, 1, 0.36, 1],
       staggerChildren: 0.1,
       delayChildren: 0.3
-    } 
+    }
   }
 };
 
 const formItemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.5, ease: "easeOut" } 
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
   }
 };
 
@@ -42,7 +42,7 @@ export default function ContactSection() {
     subject: '',
     message: ''
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
   const [statusMessage, setStatusMessage] = useState('');
@@ -82,7 +82,7 @@ export default function ContactSection() {
         setSubmitStatus('success');
         setStatusMessage('Thank you! Your message has been sent successfully.');
         setFormData({ name: '', email: '', subject: '', message: '' });
-        
+
         // Auto-hide success message after 5 seconds
         setTimeout(() => {
           setSubmitStatus(null);
@@ -104,9 +104,9 @@ export default function ContactSection() {
   return (
     <section id="contact" className="contact-section">
       <div className="contact-container">
-        
+
         {/* Left Side */}
-        <motion.div 
+        <motion.div
           className="contact-left"
           initial="hidden"
           whileInView="visible"
@@ -119,12 +119,12 @@ export default function ContactSection() {
           <motion.h2 className="contact-title" variants={leftVariants}>
             Let's talk.
           </motion.h2>
-          
+
           <motion.p className="contact-description" variants={leftVariants}>
             Have an exciting project, collaboration, or opportunity in mind? Fill out the form, and I'll get back to you as soon as possible.
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             className="social-links"
             variants={{
               hidden: {},
@@ -134,7 +134,7 @@ export default function ContactSection() {
             <motion.a href="https://github.com/mandipgit" target="_blank" rel="noopener noreferrer" className="social-btn" variants={leftVariants} aria-label="GitHub">
               <FaGithub />
             </motion.a>
-            <motion.a href="#" className="social-btn" variants={leftVariants} aria-label="LinkedIn">
+            <motion.a href="https://www.linkedin.com/in/mandeep-pokharel-726097422" target="_blank" rel="noopener noreferrer" className="social-btn" variants={leftVariants} aria-label="LinkedIn">
               <FaLinkedin />
             </motion.a>
             <motion.a href="https://www.facebook.com/mandip.pokharel.357" target="_blank" rel="noopener noreferrer" className="social-btn" variants={leftVariants} aria-label="Facebook">
@@ -147,7 +147,7 @@ export default function ContactSection() {
         </motion.div>
 
         {/* Right Side */}
-        <motion.div 
+        <motion.div
           className="contact-right"
           initial="hidden"
           whileInView="visible"
@@ -157,7 +157,7 @@ export default function ContactSection() {
           <form className="contact-form" onSubmit={handleFormSubmit}>
             <AnimatePresence>
               {submitStatus && (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, height: 0 }}
@@ -173,22 +173,22 @@ export default function ContactSection() {
               <label htmlFor="name" className="form-label">Name</label>
               <input type="text" id="name" value={formData.name} onChange={handleInputChange} className="form-input" placeholder="Enter your name" required disabled={isSubmitting} />
             </motion.div>
-            
+
             <motion.div className="form-group" variants={formItemVariants}>
               <label htmlFor="email" className="form-label">Email</label>
               <input type="email" id="email" value={formData.email} onChange={handleInputChange} className="form-input" placeholder="Enter your email" required disabled={isSubmitting} />
             </motion.div>
-            
+
             <motion.div className="form-group" variants={formItemVariants}>
               <label htmlFor="subject" className="form-label">Subject</label>
               <input type="text" id="subject" value={formData.subject} onChange={handleInputChange} className="form-input" placeholder="What is this regarding?" required disabled={isSubmitting} />
             </motion.div>
-            
+
             <motion.div className="form-group" variants={formItemVariants}>
               <label htmlFor="message" className="form-label">Message</label>
               <textarea id="message" value={formData.message} onChange={handleInputChange} className="form-textarea" placeholder="Tell me about your project" required disabled={isSubmitting}></textarea>
             </motion.div>
-            
+
             <motion.button type="submit" className="form-submit-btn" variants={formItemVariants} disabled={isSubmitting}>
               {isSubmitting ? (
                 <span className="btn-content loading">
