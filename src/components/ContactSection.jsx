@@ -62,12 +62,18 @@ export default function ContactSection() {
     setStatusMessage('');
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://formsubmit.co/ajax/mandeeppokharel577@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          Name: formData.name,
+          Email: formData.email,
+          Subject: formData.subject,
+          Message: formData.message
+        }),
       });
 
       const data = await response.json();
@@ -76,6 +82,12 @@ export default function ContactSection() {
         setSubmitStatus('success');
         setStatusMessage('Thank you! Your message has been sent successfully.');
         setFormData({ name: '', email: '', subject: '', message: '' });
+        
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus(null);
+          setStatusMessage('');
+        }, 5000);
       } else {
         setSubmitStatus('error');
         setStatusMessage(data.message || 'Failed to send message. Please try again.');
@@ -83,17 +95,9 @@ export default function ContactSection() {
     } catch (error) {
       console.error('Submission error:', error);
       setSubmitStatus('error');
-      setStatusMessage('Network error. Please check your connection and try again.');
+      setStatusMessage(error.message || 'Network error. Please check your connection and try again.');
     } finally {
       setIsSubmitting(false);
-      
-      // Auto-hide success message after 5 seconds
-      if (submitStatus === 'success') {
-        setTimeout(() => {
-          setSubmitStatus(null);
-          setStatusMessage('');
-        }, 5000);
-      }
     }
   };
 

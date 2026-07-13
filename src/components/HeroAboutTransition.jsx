@@ -83,7 +83,10 @@ export default function HeroAboutTransition() {
               transition={{ duration: 4.5, ease: "easeInOut", repeat: Infinity }}
             >
               <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 0C50 27.6142 27.6142 50 0 50C27.6142 50 50 72.3858 50 100C50 72.3858 72.3858 50 100 50C72.3858 50 50 27.6142 50 0Z" fill="#111"/>
+                <circle cx="50" cy="50" r="8" fill="#111"/>
+                <ellipse cx="50" cy="50" rx="40" ry="14" transform="rotate(30 50 50)" stroke="#111" stroke-width="6"/>
+                <ellipse cx="50" cy="50" rx="40" ry="14" transform="rotate(90 50 50)" stroke="#111" stroke-width="6"/>
+                <ellipse cx="50" cy="50" rx="40" ry="14" transform="rotate(150 50 50)" stroke="#111" stroke-width="6"/>
               </svg>
             </motion.div>
           </motion.div>
